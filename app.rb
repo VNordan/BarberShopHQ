@@ -12,8 +12,30 @@ end
 class Barber < ActiveRecord::Base
 end
 
-get '/' do
+before do
 	@barbers = Barber.all #выбираем все записи из таблицы barbers
-	@srebrab = Barber.order "created_at Desc"
+	@srebrab = Barber.order "created_at Desc" #выбираем все записи из таблицы barbers, сортируя по времени создания
+end
+
+get '/' do
+
 	erb :index
+end
+
+get '/visit' do
+	erb :visit
+end
+
+post '/visit' do
+
+	@username = params[:username]
+	@phone = params[:phone]
+	@datetime = params[:datetime]
+	@barber = params[:barber]
+	@color = params[:color]
+
+	
+
+	erb "<h2>Спасибо, вы записались!</h2>"
+
 end

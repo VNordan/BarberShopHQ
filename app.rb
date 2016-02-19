@@ -13,6 +13,7 @@ class Barber < ActiveRecord::Base
 end
 
 get '/' do
-	@barbers = Barber.all
+	@barbers = Barber.all #выбираем все записи из таблицы barbers
+	@srebrab = Barber.order "created_at Desc"
 	erb :index
 end

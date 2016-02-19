@@ -1,14 +1,14 @@
-<h2>Список парикмахеров</h2>
+<h2>Список парикмахеров по дате создания</h2>
 <% @barbers.each do |barber| %>
 	<p>
-		<%= barber.name %>
+		<%= barber.created_at %> <%= barber.name %>
 	</p>
 <% end %>
 
 	<br><br>
-
+<h2>Список парикмахеров по дате создания, в обратном порядке</h2>
 <% @srebrab.each do |barber| %>
 	<p>
-		<%= barber.name %>
+		<%= barber.created_at %> <%= barber.name %>
 	</p>
 <% end %>

@@ -28,11 +28,12 @@ end
 
 get '/visit' do
 	@c = Client.new
+	@b = Barber.all
 	erb :visit
 end
 
 post '/visit' do
-
+	@b = Barber.all
 	@c = Client.new params[:client]
 	if @c.save
 		erb "<h2>Спасибо, вы записались!</h2>"

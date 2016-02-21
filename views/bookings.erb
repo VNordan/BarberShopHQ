@@ -1,0 +1,7 @@
+<h2>Это страница со списком всех наших заказов</h2>
+
+<% @client.each do |cli| %>
+	<p>
+		<pre><%= cli.datestamp %> | <%= cli.name %>  |  <%= cli.phone %>  |  <%= cli.color %></pre>
+	</p>
+<% end %>

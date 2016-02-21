@@ -44,6 +44,7 @@ post '/visit' do
 
 end
 
-get '/employ' do
-	erb :employ
+get '/barber/:id' do
+	@n = Barber.find_by(id: 2)
+	erb :barber
 end

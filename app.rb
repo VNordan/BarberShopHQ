@@ -5,7 +5,6 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
 set :database, "sqlite3:barbershop.db"
-set :database, "sqlite3:development.db"
 
 class Client < ActiveRecord::Base
 end
@@ -13,13 +12,9 @@ end
 class Barber < ActiveRecord::Base
 end
 
-class Employ < ActiveRecord::Base
-end
-
 before do
 	@barbers = Barber.all #выбираем все записи из таблицы barbers
 	@srebrab = Barber.order "created_at Desc" #выбираем все записи из таблицы barbers, сортируя по времени создания
-	@employs = Employee_stats_departments.all
 end
 
 get '/' do
@@ -39,7 +34,15 @@ post '/visit' do
 	@barber = params[:barber]
 	@color = params[:color]
 
+#name, phone, datestamp, barber, color
 	
+	c = Client.new
+	c.name = @username
+	c.phone = @phone
+	c.datestamp = @datetime
+	c.barber = @barber
+	c.color = @color
+	c.save
 
 	erb "<h2>Спасибо, вы записались!</h2>"
 

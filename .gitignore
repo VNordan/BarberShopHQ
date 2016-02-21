@@ -1,1 +1,5 @@
 barbershop.db
+bpp.rb
+db/migrate/20160221164945_employs.rb
+development.db
+views/employ.erb
